@@ -1,0 +1,15 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Detection {
+  id        Int      @id @default(autoincrement())
+  imageName String
+  isHuman   Boolean
+  createdAt DateTime @default(now())
+}
